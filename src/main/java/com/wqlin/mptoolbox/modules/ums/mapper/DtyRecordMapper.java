@@ -1,6 +1,7 @@
 package com.wqlin.mptoolbox.modules.ums.mapper;
 
 import com.wqlin.mptoolbox.modules.ums.model.DtyRecord;
+import java.util.List;
 
 public interface DtyRecordMapper {
     int deleteByPrimaryKey(String rid);
@@ -14,4 +15,6 @@ public interface DtyRecordMapper {
     int updateByPrimaryKeySelective(DtyRecord record);
 
     int updateByPrimaryKey(DtyRecord record);
+
+    List<DtyRecord> findList(DtyRecord record);
 }

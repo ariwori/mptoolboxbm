@@ -51,16 +51,13 @@ public class DtyRecordServiceImpl implements DtyRecordService {
     public String add(DtyRecord record) {
         String rid = UUID.randomUUID().toString().replace("-", "");
         record.setRid(rid);
-        Date ss = new Date();
-        SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time = timeFormat.format(ss.getTime());//这个就是把时间戳经过处理得到期望格式的时间
-        record.setCreatetime(time);
+        record.setCreatetime(new Date());
         return "预订成功";
     }
 
     @Override
     public List<DtyRecord> find(DtyRecord record) {
-        return dtyRecordMapper
+        return dtyRecordMapper.findList(record);
     }
 }
 
