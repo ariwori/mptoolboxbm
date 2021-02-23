@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wqlin.wx.mptoolbox.modules.ums.mapper.DtyRecordMapper">
+  <resultMap id="BaseResultMap" type="com.wqlin.wx.mptoolbox.modules.ums.model.DtyRecord">
+    <!--@mbg.generated-->
+    <!--@Table dty_record-->
+    <id column="rid" jdbcType="VARCHAR" property="rid" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="dingche" jdbcType="VARCHAR" property="dingche" />
+    <result column="dingcan" jdbcType="VARCHAR" property="dingcan" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="yudingDate" jdbcType="TIMESTAMP" property="yudingdate" />
+    <result column="timecode" jdbcType="VARCHAR" property="timecode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    rid, `uid`, dingche, dingcan, createTime, yudingDate, timecode
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from dty_record
+    where rid = #{rid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from dty_record
+    where rid = #{rid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyRecord">
+    <!--@mbg.generated-->
+    insert into dty_record (rid, `uid`, dingche, 
+      dingcan, createTime, yudingDate, 
+      timecode)
+    values (#{rid,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{dingche,jdbcType=VARCHAR}, 
+      #{dingcan,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{yudingdate,jdbcType=TIMESTAMP}, 
+      #{timecode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyRecord">
+    <!--@mbg.generated-->
+    insert into dty_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        rid,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="dingche != null">
+        dingche,
+      </if>
+      <if test="dingcan != null">
+        dingcan,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="yudingdate != null">
+        yudingDate,
+      </if>
+      <if test="timecode != null">
+        timecode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="dingche != null">
+        #{dingche,jdbcType=VARCHAR},
+      </if>
+      <if test="dingcan != null">
+        #{dingcan,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yudingdate != null">
+        #{yudingdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timecode != null">
+        #{timecode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyRecord">
+    <!--@mbg.generated-->
+    update dty_record
+    <set>
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="dingche != null">
+        dingche = #{dingche,jdbcType=VARCHAR},
+      </if>
+      <if test="dingcan != null">
+        dingcan = #{dingcan,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yudingdate != null">
+        yudingDate = #{yudingdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timecode != null">
+        timecode = #{timecode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rid = #{rid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyRecord">
+    <!--@mbg.generated-->
+    update dty_record
+    set `uid` = #{uid,jdbcType=VARCHAR},
+      dingche = #{dingche,jdbcType=VARCHAR},
+      dingcan = #{dingcan,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      yudingDate = #{yudingdate,jdbcType=TIMESTAMP},
+      timecode = #{timecode,jdbcType=VARCHAR}
+    where rid = #{rid,jdbcType=VARCHAR}
+  </update>
+  <select id="findList" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyRecord" resultMap="BaseResultMap">
+    select *
+    from dty_record
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="timecode != null">
+        and timecode = #{timecode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </select>
+</mapper>

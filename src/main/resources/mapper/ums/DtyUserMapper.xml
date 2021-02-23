@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wqlin.wx.mptoolbox.modules.ums.mapper.DtyUserMapper">
+  <resultMap id="BaseResultMap" type="com.wqlin.wx.mptoolbox.modules.ums.model.DtyUser">
+    <!--@mbg.generated-->
+    <!--@Table dty_user-->
+    <id column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="wxid" jdbcType="VARCHAR" property="wxid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="depart" jdbcType="VARCHAR" property="depart" />
+    <result column="isadmin" jdbcType="INTEGER" property="isadmin" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `uid`, wxid, `name`, depart, isadmin
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from dty_user
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from dty_user
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyUser">
+    <!--@mbg.generated-->
+    insert into dty_user (`uid`, wxid, `name`, 
+      depart, isadmin)
+    values (#{uid,jdbcType=VARCHAR}, #{wxid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{depart,jdbcType=VARCHAR}, #{isadmin,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyUser">
+    <!--@mbg.generated-->
+    insert into dty_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="wxid != null">
+        wxid,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="depart != null">
+        depart,
+      </if>
+      <if test="isadmin != null">
+        isadmin,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxid != null">
+        #{wxid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="depart != null">
+        #{depart,jdbcType=VARCHAR},
+      </if>
+      <if test="isadmin != null">
+        #{isadmin,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyUser">
+    <!--@mbg.generated-->
+    update dty_user
+    <set>
+      <if test="wxid != null">
+        wxid = #{wxid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="depart != null">
+        depart = #{depart,jdbcType=VARCHAR},
+      </if>
+      <if test="isadmin != null">
+        isadmin = #{isadmin,jdbcType=INTEGER},
+      </if>
+    </set>
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyUser">
+    <!--@mbg.generated-->
+    update dty_user
+    set wxid = #{wxid,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      depart = #{depart,jdbcType=VARCHAR},
+      isadmin = #{isadmin,jdbcType=INTEGER}
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </update>
+  <select id="findList" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyUser" resultMap="BaseResultMap">
+    select *
+    from dty_user
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="name != null and name != ''">
+        `name` = #{name,jdbcType=VARCHAR}
+      </if>
+   </trim>
+  </select>
+  <select id="findList1" parameterType="com.wqlin.wx.mptoolbox.modules.ums.model.DtyUser" resultMap="BaseResultMap">
+    select *
+    from dty_user
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="wxid != null and wxid != ''">
+        wxid = #{wxid,jdbcType=VARCHAR}
+      </if>
+   </trim>
+  </select>
+</mapper>
